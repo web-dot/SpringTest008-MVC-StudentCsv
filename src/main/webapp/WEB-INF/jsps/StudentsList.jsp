@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Student App</h1><br>
+	<h1>All Students are</h1>
 	
-	<a href="showStudentsView" target="">Get All Students</a>
-	
+	<b>${students} </b>
 </body>
 </html>

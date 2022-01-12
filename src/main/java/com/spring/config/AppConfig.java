@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan({"com.spring.config"})
+@ComponentScan({"com.spring.config", "com.spring.dao", "com.spring.service", "com.spring.util"})
 public class AppConfig {
 
 	@Bean
