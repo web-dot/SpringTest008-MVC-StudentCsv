@@ -1,5 +1,6 @@
 package com.spring.config;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class HomeController {
 	@Autowired
 	StudentService stuService;
 	
+	//List<String> studentNames=new ArrayList<>();
+	//List<String> studentAge=new ArrayList<>();
+	
 	@RequestMapping({"/", "/Home"})
 	public String showHome() {
 		return "Home";
@@ -23,9 +27,27 @@ public class HomeController {
 	
 	@RequestMapping("/showStudentsView")
 	public String getAllStudents(Model model) {
-		
+		List<String> studentNames=new ArrayList<>();
 		List<Student> allStudents = stuService.getAllStudents();
-		model.addAttribute("students", allStudents);
+		for(Student student:allStudents) {
+			studentNames.add(student.getfirst_name() + " " + student.getlast_name());
+		}
+		model.addAttribute("students", studentNames);
 		return "StudentsList";
 	}
+	
+	@RequestMapping("/showStudentsAgeView")
+	public String getAllStudentsByAge(Model model) {
+		List<String> studentAge=new ArrayList<>();
+		List<Student> allStudents = stuService.getAllStudents();
+		for(Student student:allStudents) {
+			String dob = student.getDate_of_birth();
+			String[] darr = dob.split("-");
+			System.out.println(darr);
+			studentAge.add(student.getfirst_name()+" : " + student.getDate_of_birth());
+		}
+		model.addAttribute("age", studentAge);
+		return "studentAge";
+	}
+	
 }
