@@ -17,8 +17,6 @@ public class HomeController {
 	@Autowired
 	StudentService stuService;
 	
-	//List<String> studentNames=new ArrayList<>();
-	//List<String> studentAge=new ArrayList<>();
 	
 	@RequestMapping({"/", "/Home"})
 	public String showHome() {
@@ -28,8 +26,7 @@ public class HomeController {
 	@RequestMapping("/showStudentsView")
 	public String getAllStudents(Model model) {
 		List<String> studentNames=new ArrayList<>();
-		List<Student> allStudents = stuService.getAllStudents();
-		for(Student student:allStudents) {
+		for(Student student:stuService.getAllStudents()) {
 			studentNames.add(student.getfirst_name() + " " + student.getlast_name());
 		}
 		model.addAttribute("students", studentNames);
