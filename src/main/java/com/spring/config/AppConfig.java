@@ -11,9 +11,8 @@ public class AppConfig {
 
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
-		
 		InternalResourceViewResolver vr = new InternalResourceViewResolver();
-		vr.setPrefix("WEB-INF/jsps/");
+		vr.setPrefix("/WEB-INF/jsps/");
 		vr.setSuffix(".jsp");
 		return vr;
 	}

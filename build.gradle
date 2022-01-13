@@ -39,8 +39,21 @@ dependencies {
 	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.1'
 	
 	
+	// https://mvnrepository.com/artifact/com.opencsv/opencsv
+	implementation group: 'com.opencsv', name: 'opencsv', version: '5.5.2'
 	
-    
+}
+
+
+sourceSets {
+        main {
+                java {
+                        srcDirs= ["src/main/java"]
+                }
+                resources {
+                        srcDirs= ["src/main/resources"]
+                }
+        }
 }
 
 tasks.named('test') {

@@ -16,6 +16,7 @@ public class StudentServiceImpl implements StudentService {
 	
 	@Override
 	public List<Student> getAllStudents() {
+		System.out.println("inside service: " + sdao.getStudents());
 		return sdao.getStudents();
 	}
 }

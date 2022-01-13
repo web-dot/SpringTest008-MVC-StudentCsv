@@ -16,11 +16,13 @@ public class StudentsDAOImpl implements StudentsDAO {
 	
 	public StudentsDAOImpl() {
 		studentList = CsvReaderUtil.loadFromCsvFile();
+		System.out.println("inside dao cons: " + studentList);
 	}
 	
 	
 	@Override
 	public List<Student> getStudents() {
+		System.out.println("inside dao: " + studentList);
 		return studentList;
 	}
 

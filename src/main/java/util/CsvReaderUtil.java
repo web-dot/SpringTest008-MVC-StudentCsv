@@ -12,6 +12,8 @@ import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import com.spring.domain.Student;
 
 @Component
@@ -30,7 +32,8 @@ public class CsvReaderUtil {
 		List<Student> students = new ArrayList<>();
 		
 		try {
-			Reader reader = new FileReader("/students.txt");
+			
+			Reader reader = new FileReader("C:\\Users\\admin\\eclipse-workspace\\Springmvctest004-stucsv\\src\\main\\resources\\students.txt");
 			MappingIterator<Student> mi = objReader.readValues(reader);
 			
 			while(mi.hasNext()) {
@@ -39,7 +42,7 @@ public class CsvReaderUtil {
 				System.out.println(current);
 			}
 		}
-		catch(IOException e) {
+			catch(IOException e) {
 			e.printStackTrace();
 		}
 		return students;
